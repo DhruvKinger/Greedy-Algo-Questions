@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    bool t;
+    int l,balance=0;
+    vector <int> imp;
+   
+   for(int i=0;i<n;i++)
+   {
+       cin>>l>>t;
+
+       if(t)
+       {
+           imp.push_back(l);
+       }
+       else
+       {
+           balance+=l;
+       }
+   }
+     sort(imp.begin(), imp.end(), greater<int>()); 
+  
+
+   /*for(auto i=imp.begin();i!=imp.end();i++)
+   {
+       cout<<*i<<" ";
+   }
+  */
+   for(auto x:imp)
+   {
+       if(k-- >0)
+       {
+           balance+=x;
+       }
+
+       else
+       {
+           balance-=x;
+       }
+   }
+cout<<balance;
+}
